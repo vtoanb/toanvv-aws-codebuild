@@ -3,15 +3,15 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - $(aws ecr get-login --no-include-email --region ap-southeast-1)
+      - $(aws ecr get-login --no-include-email --region us-east-1)
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
       - docker build -t toanvv-repo:latest .
-      - docker tag toanvv-repo:latest AIDAWEHYFX47JJCNXV4YJ.dkr.ecr.ap-southeast-1.amazonaws.com/toanvv-repo:latest
+      - docker tag toanvv-repo:latest 421427265342.dkr.ecr.us-east-1.amazonaws.com/toanvv-repo:latest
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push AIDAWEHYFX47JJCNXV4YJ.dkr.ecr.ap-southeast-1.amazonaws.com/toanvv-repo:latest
+      - docker push 421427265342.dkr.ecr.us-east-1.amazonaws.com/toanvv-repo:latest
